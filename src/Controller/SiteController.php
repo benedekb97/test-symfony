@@ -41,6 +41,9 @@ class SiteController extends AbstractController
         return $this->render('editor.html.twig');
     }
 
+    /**
+     * @Route("/user", name="user")
+     */
     public function user(): Response
     {
         return $this->render('user.html.twig');
