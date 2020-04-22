@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    {% if is_granted('ROLE_AUTHENTICATED') %}
+
+    {% endif %}
+    <p>Belépési adatok:</p>
+    <p>Felhasználónév - {{ app.user.username }}</p>
+    <p>Utolsó bejelentkezés - {{ app.user.getLastLogin().format("Y-m-d H:i:s") }}</p>
+    <p>Csoportok -
+        {% for role in app.user.roles  %}
+            {{ roles[role] }},
+        {% endfor %}
+    </p>
+{% endblock %}
