@@ -1,0 +1,7 @@
+App\Entity\User:
+  properties:
+    username:
+      - NotBlank
+    password:
+      - NotBlank
+      - UserPassword

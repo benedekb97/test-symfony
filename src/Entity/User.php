@@ -38,6 +38,11 @@ class User implements UserInterface
      */
     private $last_login;
 
+    /**
+     * @ORM\Column(type="integer", options={"default":0})
+     */
+    private $login_attempts;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +124,18 @@ class User implements UserInterface
     public function setLastLogin(?\DateTimeInterface $last_login): self
     {
         $this->last_login = $last_login;
+
+        return $this;
+    }
+
+    public function getLoginAttempts(): ?int
+    {
+        return $this->login_attempts;
+    }
+
+    public function setLoginAttempts(int $login_attempts): self
+    {
+        $this->login_attempts = $login_attempts;
 
         return $this;
     }

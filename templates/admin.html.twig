@@ -4,7 +4,7 @@
 
 {% block body %}
     {% if app.user %}
-        <a href="{{ path('app_logout') }}">Kijelentkezés</a>
+        <a href="{{ path('logout') }}">Kijelentkezés</a>
     {% endif %}
     {% if is_granted('ROLE_AUTHENTICATED') %}
         <p>
