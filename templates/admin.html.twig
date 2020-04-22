@@ -3,9 +3,21 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-    {% if is_granted('ROLE_AUTHENTICATED') %}
-
+    {% if app.user %}
+        <a href="{{ path('app_logout') }}">Kijelentkezés</a>
     {% endif %}
+    {% if is_granted('ROLE_AUTHENTICATED') %}
+        <p>
+            <a href="{{ path('user') }}">Felhasználói oldal</a>
+        </p>
+    {% endif %}
+    {% if is_granted('ROLE_EDITOR') %}
+        <p>
+            <a href="{{ path('editor') }}">Tartalomszerkesztői oldal</a>
+        </p>
+    {% endif %}
+    <hr>
+    <h1>Központi adminisztrációs oldal</h1>
     <p>Belépési adatok:</p>
     <p>Felhasználónév - {{ app.user.username }}</p>
     <p>Utolsó bejelentkezés - {{ app.user.getLastLogin().format("Y-m-d H:i:s") }}</p>
