@@ -21,7 +21,6 @@ class LoginController extends AbstractController
 {
     /**
      * @Route("/login", name="login")
-     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
      */
     public function login(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
