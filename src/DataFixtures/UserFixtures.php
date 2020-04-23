@@ -22,22 +22,26 @@ class UserFixtures extends Fixture
             [
                 'username' => 'admin',
                 'password' => 'admin',
-                'roles' => ['ROLE_ADMIN']
+                'roles' => ['ROLE_ADMIN'],
+                'login_attempts' => 0
             ],[
                 'username' => 'user1',
                 'password' => 'user1',
                 'roles' => [
                     'ROLE_EDITOR',
                     'ROLE_AUTHENTICATED'
-                ]
+                ],
+                'login_attempts' => 0
             ],[
                 'username' => 'user2',
                 'password' => 'user2',
-                'roles' => ['ROLE_EDITOR']
+                'roles' => ['ROLE_EDITOR'],
+                'login_attempts' => 0
             ],[
                 'username' => 'user3',
                 'password' => 'user3',
-                'roles' => ['ROLE_AUTHENTICATED']
+                'roles' => ['ROLE_AUTHENTICATED'],
+                'login_attempts' => 0
             ]
         ];
 
@@ -50,6 +54,7 @@ class UserFixtures extends Fixture
                 $user_data['password']
             ));
             $user->setRoles($user_data['roles']);
+            $user->setLoginAttempts($user_data['login_attempts']);
             $manager->persist($user);
         }
 

@@ -27,7 +27,7 @@ class SiteController extends AbstractController
     public function admin(): Response
     {
         if(!$this->isGranted('ROLE_EDITOR') && !$this->isGranted('ROLE_AUTHENTICATED')){
-            $this->denyAccessUnlessGranted('');
+            return new RedirectResponse($this->generateUrl('login'));
         }
         $roles = [
             'ROLE_ADMIN' => 'Adminisztrátor',
